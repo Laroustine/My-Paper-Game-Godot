@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3m16ag674m20"]
+
+[ext_resource type="Script" path="res://object/npc/speach.gd" id="1_4r75y"]
+[ext_resource type="Texture2D" uid="uid://coufjioexfioe" path="res://image/speach.png" id="2_8445s"]
+[ext_resource type="Theme" uid="uid://dr6sgofvtdtbx" path="res://themes/Bubble.tres" id="3_dxdip"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mykcl"]
+viewport_path = NodePath("Bubble/Text/Viewport")
+
+[sub_resource type="Animation" id="Animation_6xo4d"]
+resource_name = "up&down"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bubble:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.05, 0), Vector3(0, 0, 0), Vector3(0, 0.05, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhbu8"]
+_data = {
+"up&down": SubResource("Animation_6xo4d")
+}
+
+[node name="Speach" type="Node3D"]
+script = ExtResource("1_4r75y")
+
+[node name="Bubble" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00421243, 0)
+
+[node name="Icon" type="Sprite3D" parent="Bubble"]
+texture_filter = 0
+texture = ExtResource("2_8445s")
+
+[node name="Text" type="Sprite3D" parent="Bubble"]
+transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -0.01, 0.08, 0.01)
+texture_filter = 0
+texture = SubResource("ViewportTexture_mykcl")
+region_rect = Rect2(2.31, 0, 0, 0)
+
+[node name="Viewport" type="SubViewport" parent="Bubble/Text"]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(480, 128)
+
+[node name="Label" type="Label" parent="Bubble/Text/Viewport"]
+texture_filter = 1
+offset_right = 480.0
+offset_bottom = 128.0
+theme = ExtResource("3_dxdip")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor quam vitae iaculis sagittis. Nam sollicitudin nisi tortor, quis venenatis orci luctus sit amet. Aenean blandit quis lorem non."
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xhbu8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dr6sgofvtdtbx"]
+
+[ext_resource type="FontFile" uid="uid://16fmrhbkxpvx" path="res://font/PX437_IBM_BIOS.TTF" id="1_55g5e"]
+
+[resource]
+default_font = ExtResource("1_55g5e")
+default_font_size = 15
+Button/colors/font_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_color = Color(0, 0, 0, 1)
+CheckButton/colors/font_color = Color(0, 0, 0, 1)
+CodeEdit/colors/completion_font_color = Color(0, 0, 0, 1)
+CodeEdit/colors/font_color = Color(0, 0, 0, 1)
+ColorPickerButton/colors/font_color = Color(0, 0, 0, 1)
+ItemList/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LinkButton/colors/font_color = Color(0, 0, 0, 1)
+MenuBar/colors/font_color = Color(0, 0, 0, 1)
+MenuButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TooltipLabel/colors/font_color = Color(0, 0, 0, 1)
+Tree/colors/font_color = Color(0, 0, 0, 1)

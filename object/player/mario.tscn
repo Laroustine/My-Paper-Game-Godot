@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://5shcv6dtgopw"]
+[gd_scene load_steps=14 format=3 uid="uid://5shcv6dtgopw"]
 
 [ext_resource type="Script" path="res://object/player/mario.gd" id="1_67pmb"]
-[ext_resource type="AudioStream" uid="uid://civdndbe48fqk" path="res://audio/sound/step.wav" id="3_opx0w"]
 [ext_resource type="Texture2D" uid="uid://dc7yowtm10kau" path="res://image/sprite/character/white.png" id="3_psyuq"]
+[ext_resource type="AudioStream" uid="uid://civdndbe48fqk" path="res://audio/sound/step_01.wav" id="3_qwqlg"]
 [ext_resource type="AudioStream" uid="uid://b4pja5nis8q63" path="res://audio/sound/jump.wav" id="4_uabw1"]
-[ext_resource type="PackedScene" uid="uid://c3m16ag674m20" path="res://object/npc/speach.tscn" id="5_im7a0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7xwk"]
 size = Vector3(0.6, 1, 0.3)
@@ -211,7 +210,7 @@ libraries = {
 [node name="Sounds" type="Node" parent="Sprite3D"]
 
 [node name="Step" type="AudioStreamPlayer" parent="Sprite3D/Sounds"]
-stream = ExtResource("3_opx0w")
+stream = ExtResource("3_qwqlg")
 volume_db = -25.0
 
 [node name="Jump" type="AudioStreamPlayer" parent="Sprite3D/Sounds"]
@@ -222,6 +221,3 @@ pitch_scale = 0.8
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.2, 4)
 rotation_order = 0
-
-[node name="Speach" parent="." instance=ExtResource("5_im7a0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

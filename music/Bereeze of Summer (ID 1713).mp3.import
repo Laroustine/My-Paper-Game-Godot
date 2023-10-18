@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c45gjc8jyovjs"
+path="res://.godot/imported/Bereeze of Summer (ID 1713).mp3-58edf08c32bb8ea32b9a51b333583bbe.mp3str"
+
+[deps]
+
+source_file="res://music/Bereeze of Summer (ID 1713).mp3"
+dest_files=["res://.godot/imported/Bereeze of Summer (ID 1713).mp3-58edf08c32bb8ea32b9a51b333583bbe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
