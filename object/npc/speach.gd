@@ -4,7 +4,7 @@ extends Node3D
 @onready var SOUND = $AudioStreamPlayer
 @onready var TIMER = $Timer
 @export var TEXT = ""
-@export var VOICE = ""
+@export_dir var VOICE = ""
 @export var VOICE_SPEED = 0.1
 @export var EVENT_KEY = ""
 
@@ -17,6 +17,8 @@ func _ready():
 	LABEL.text = ""
 	CURRENT_TEXT = TEXT
 	TIMER.wait_time = VOICE_SPEED
+	if DirAccess.dir_exists_absolute(VOICE):
+		return
 	for letter in "abcdefghijklmnopqrstuvwxyz":
 		VOICE_DIC[letter] = load(VOICE + letter + ".wav")
 	
@@ -33,7 +35,7 @@ func _on_timer_timeout():
 	if len(CURRENT_TEXT) > 0:
 		LABEL.text += CURRENT_TEXT[0]
 		SOUND.stop()
-		if CURRENT_TEXT[0] >= "a" and CURRENT_TEXT[0] <= "z":
+		if VOICE_DIC and CURRENT_TEXT[0] >= "a" and CURRENT_TEXT[0] <= "z":
 			SOUND.set_stream(VOICE_DIC[CURRENT_TEXT[0]])
 			SOUND.play()
 		CURRENT_TEXT = CURRENT_TEXT.substr(1, -1)

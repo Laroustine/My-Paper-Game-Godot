@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3m16ag674m20"]
+[gd_scene load_steps=7 format=3 uid="uid://c3m16ag674m20"]
 
 [ext_resource type="Script" path="res://object/npc/speach.gd" id="1_4r75y"]
 [ext_resource type="Texture2D" uid="uid://coufjioexfioe" path="res://image/speach.png" id="2_8445s"]
 [ext_resource type="Theme" uid="uid://dr6sgofvtdtbx" path="res://themes/Bubble.tres" id="3_dxdip"]
-[ext_resource type="AudioStream" uid="uid://jly7ar6bfnkp" path="res://audio/voice/Justin/b.wav" id="4_fiebu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mykcl"]
 viewport_path = NodePath("Bubble/Text/Viewport")
@@ -64,7 +63,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_fiebu")
 
 [node name="Timer" type="Timer" parent="."]
 
