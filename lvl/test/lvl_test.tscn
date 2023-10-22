@@ -33,7 +33,7 @@ NAME = "Justin"
 SPRITE = ExtResource("3_745tn")
 INTERACT = NodePath("../Player")
 TEXT = "Hello,
-Has you can see I made this little prototype and most of it's assets within 2 days of work.
+You can see I made this little prototype and most of it's assets within 2 days of work.
 This game is available cross-platform using Godot."
 VOICE = "res://audio/voice/Paul"
 VOICE_SPEED = 0.06
