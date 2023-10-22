@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf808ljgc87xm"]
+[gd_scene load_steps=6 format=3 uid="uid://bf808ljgc87xm"]
 
+[ext_resource type="PackedScene" uid="uid://bef8wbjukd3oo" path="res://object/menu/Mobile_Controls.tscn" id="1_7tjyu"]
 [ext_resource type="PackedScene" uid="uid://5shcv6dtgopw" path="res://object/player/player.tscn" id="1_dvbr1"]
 [ext_resource type="PackedScene" uid="uid://cji87qxm3c1n1" path="res://object/terrain.tscn" id="1_i0ijn"]
 [ext_resource type="PackedScene" uid="uid://c2h228hatl4hw" path="res://object/block.tscn" id="1_ndtw8"]
 [ext_resource type="AudioStream" uid="uid://c45gjc8jyovjs" path="res://music/Bereeze of Summer (ID 1713).mp3" id="5_af8dr"]
 
 [node name="lvl_test" type="Node3D"]
+
+[node name="Mobile_Controls" parent="." instance=ExtResource("1_7tjyu")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.939693, -0.296198, 0.17101, -0.0795527, 0.297, 0.951558, -0.33264, -0.907776, 0.255525, 3, 10, 10)

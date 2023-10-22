@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdeyd3l84hqp4"]
+[gd_scene load_steps=15 format=3 uid="uid://cdeyd3l84hqp4"]
 
 [ext_resource type="Script" path="res://object/npc/npc.gd" id="1_wfrk2"]
 [ext_resource type="Texture2D" uid="uid://dtt18s8pme0fr" path="res://image/sprite/character/steps_empty.png" id="2_jf63p"]
@@ -139,6 +139,12 @@ _data = {
 "run_side": SubResource("Animation_lp56j")
 }
 
+[sub_resource type="Theme" id="Theme_8hhdx"]
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_qpopn"]
+default_font_size = 22
+
 [node name="Npc" type="CharacterBody3D"]
 script = ExtResource("1_wfrk2")
 
@@ -187,17 +193,11 @@ grow_horizontal = 2
 
 [node name="Name" type="Label" parent="NameDisplay"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -183.0
-offset_top = -358.0
-offset_right = 183.0
-offset_bottom = -305.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 58.0
 grow_horizontal = 2
-grow_vertical = 2
+theme = SubResource("Theme_8hhdx")
 text = "I HOPE I HAVE A NAME SOON"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -231,9 +231,10 @@ anchor_bottom = 1.0
 offset_left = 40.0
 offset_top = -180.0
 offset_right = -40.0
-offset_bottom = -40.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = SubResource("Theme_qpopn")
 text = "I HOPE I HAVE A TEXT WITH ME SOON"
 autowrap_mode = 3
 

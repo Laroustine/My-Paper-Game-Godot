@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cauwb6il81gey"]
+[gd_scene load_steps=8 format=3 uid="uid://cauwb6il81gey"]
 
+[ext_resource type="PackedScene" uid="uid://bef8wbjukd3oo" path="res://object/menu/Mobile_Controls.tscn" id="1_5b8bl"]
 [ext_resource type="PackedScene" uid="uid://5shcv6dtgopw" path="res://object/player/player.tscn" id="1_c5wia"]
 [ext_resource type="PackedScene" uid="uid://cdeyd3l84hqp4" path="res://object/npc/npc.tscn" id="2_vclcu"]
 [ext_resource type="Texture2D" uid="uid://dwola34ekqpe2" path="res://image/sprite/character/base_x3.png" id="3_745tn"]
@@ -12,6 +13,8 @@ size = Vector3(20, 0.2, 20)
 size = Vector3(20, 0.2, 20)
 
 [node name="lvl_test" type="Node3D"]
+
+[node name="Mobile_Controls" parent="." instance=ExtResource("1_5b8bl")]
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_db6o7")

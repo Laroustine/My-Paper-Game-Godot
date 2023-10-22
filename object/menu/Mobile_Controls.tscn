@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://bef8wbjukd3oo"]
+
+[ext_resource type="Texture2D" uid="uid://dtliy1gvhb4pm" path="res://image/sprite/keys/mobile/talk.png" id="1_4dcpc"]
+[ext_resource type="Script" path="res://object/menu/Mobile_Controls.gd" id="1_o6bv3"]
+[ext_resource type="Texture2D" uid="uid://d5euo2dl2oij" path="res://image/sprite/keys/mobile/jump.png" id="2_af8l6"]
+[ext_resource type="Texture2D" uid="uid://di2pci1x6avlo" path="res://image/sprite/keys/mobile/arrow_up.png" id="3_dtekq"]
+
+[node name="Mobile_Controls" type="TextureRect"]
+modulate = Color(1, 1, 1, 0.470588)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 4
+stretch_mode = 3
+script = ExtResource("1_o6bv3")
+
+[node name="Jump" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -240.0
+offset_right = -212.0
+offset_bottom = -232.0
+grow_horizontal = 0
+grow_vertical = 0
+button_mask = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Jump"]
+scale = Vector2(4, 4)
+texture_normal = ExtResource("2_af8l6")
+action = "jump"
+
+[node name="Talk" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -430.0
+offset_top = -240.0
+offset_right = -422.0
+offset_bottom = -232.0
+grow_horizontal = 0
+grow_vertical = 0
+button_mask = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Talk"]
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_4dcpc")
+action = "talk"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = -380.0
+offset_right = 158.0
+offset_bottom = -372.0
+grow_vertical = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Button"]
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("3_dtekq")
+passby_press = true
+action = "move_back"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Button"]
+position = Vector2(240, 120)
+rotation = 1.5708
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("3_dtekq")
+passby_press = true
+action = "move_right"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Button"]
+position = Vector2(-120, 240)
+rotation = -1.5708
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("3_dtekq")
+passby_press = true
+action = "move_left"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Button"]
+position = Vector2(120, 360)
+rotation = 3.14159
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("3_dtekq")
+passby_press = true
+action = "move_front"
