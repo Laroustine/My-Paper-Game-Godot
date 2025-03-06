@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://cdeyd3l84hqp4"]
 
-[ext_resource type="Script" path="res://object/npc/npc.gd" id="1_wfrk2"]
-[ext_resource type="Texture2D" uid="uid://dtt18s8pme0fr" path="res://image/sprite/character/steps_empty.png" id="2_jf63p"]
+[ext_resource type="Script" path="res://object/npc/Npc.cs" id="1_yjxif"]
+[ext_resource type="Texture2D" uid="uid://dtt18s8pme0fr" path="res://assets/image/sprite/character/steps_empty.png" id="2_jf63p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7xwk"]
-size = Vector3(0.2, 0.32, 0.1)
+size = Vector3(0.18, 0.32, 0.04)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mc7hp"]
 size = Vector3(0.5, 0.4, 0.25)
@@ -145,23 +145,23 @@ default_font_size = 40
 [sub_resource type="Theme" id="Theme_qpopn"]
 default_font_size = 22
 
-[node name="Npc" type="CharacterBody3D"]
-script = ExtResource("1_wfrk2")
+[node name="Npc" type="StaticBody3D"]
+script = ExtResource("1_yjxif")
 
 [node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 alpha_cut = 2
+texture_filter = 0
 texture = ExtResource("2_jf63p")
 hframes = 10
 vframes = 3
 frame = 3
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("BoxShape3D_a7xwk")
 
 [node name="Interact" type="Area3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Hitbox" type="CollisionShape3D" parent="Interact"]
 shape = SubResource("BoxShape3D_mc7hp")
@@ -173,6 +173,7 @@ libraries = {
 }
 
 [node name="NameDisplay" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,29 +182,26 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Panel" type="Panel" parent="NameDisplay"]
+[node name="Panel" type="PanelContainer" parent="NameDisplay"]
+custom_minimum_size = Vector2(512, 64)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -183.5
-offset_right = 183.5
-offset_bottom = 57.0
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 64.0
 grow_horizontal = 2
 
-[node name="Name" type="Label" parent="NameDisplay"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 58.0
-grow_horizontal = 2
+[node name="Name" type="Label" parent="NameDisplay/Panel"]
+layout_mode = 2
 theme = SubResource("Theme_8hhdx")
-text = "I HOPE I HAVE A NAME SOON"
+text = "NO NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="TextBox" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -222,26 +220,26 @@ offset_top = -206.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Text" type="Label" parent="TextBox"]
+[node name="Margin" type="MarginContainer" parent="TextBox/Panel"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -180.0
-offset_right = -40.0
-offset_bottom = -30.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Text" type="Label" parent="TextBox/Panel/Margin"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 1
 theme = SubResource("Theme_qpopn")
-text = "I HOPE I HAVE A TEXT WITH ME SOON"
+text = "NO DIALOG"
 autowrap_mode = 3
 
 [node name="Voice" type="AudioStreamPlayer" parent="TextBox"]
 
 [node name="Timer" type="Timer" parent="TextBox"]
-
-[connection signal="body_entered" from="Interact" to="." method="_player_enter"]
-[connection signal="body_exited" from="Interact" to="." method="_player_leave"]
-[connection signal="timeout" from="TextBox/Timer" to="." method="_on_timer_timeout"]

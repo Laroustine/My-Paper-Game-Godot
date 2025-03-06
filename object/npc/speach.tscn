@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3m16ag674m20"]
+[gd_scene load_steps=6 format=3 uid="uid://c3m16ag674m20"]
 
 [ext_resource type="Script" path="res://object/npc/speach.gd" id="1_4r75y"]
-[ext_resource type="Texture2D" uid="uid://coufjioexfioe" path="res://image/speach.png" id="2_8445s"]
-[ext_resource type="Theme" uid="uid://dr6sgofvtdtbx" path="res://themes/Bubble.tres" id="3_dxdip"]
+[ext_resource type="Texture2D" uid="uid://coufjioexfioe" path="res://assets/image/speach.png" id="2_8445s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mykcl"]
 viewport_path = NodePath("Bubble/Text/Viewport")
@@ -53,7 +52,6 @@ size = Vector2i(480, 128)
 texture_filter = 1
 offset_right = 480.0
 offset_bottom = 128.0
-theme = ExtResource("3_dxdip")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor quam vitae iaculis sagittis. Nam sollicitudin nisi tortor, quis venenatis orci luctus sit amet. Aenean blandit quis lorem non."
 autowrap_mode = 3
 

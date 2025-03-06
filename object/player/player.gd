@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @export var SPEED = 4.0
 @export var SPEED_ROTATE = 8.0
@@ -14,7 +15,7 @@ var DEFAULT_CAM_POS = Vector3(0, 0, 0)
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	$Sprite3D/AnimationPlayer.play("idle")
+	$AnimationPlayer.play("idle")
 	DEFAULT_CAM_POS = $Camera3D.position
 
 func _process(delta):
@@ -65,7 +66,7 @@ func _physics_process(delta):
 	PREV_VELOCITY = velocity
 
 func camara_handler(delta):
-	match $Sprite3D/AnimationPlayer.current_animation:
+	match $AnimationPlayer.current_animation:
 		"fall":
 			$Camera3D.position.y = lerp($Camera3D.position.y, DEFAULT_CAM_POS.y - 2, delta)
 		"jump":
@@ -102,19 +103,19 @@ func camara_handler(delta):
 func animation_handler():
 	if velocity.y > 0:
 		if is_on_floor():
-			$Sprite3D/AnimationPlayer.play("jump")
+			$AnimationPlayer.play("jump")
 	elif abs(velocity.y) - abs(PREV_VELOCITY.y) > 0:
-		if $Sprite3D/AnimationPlayer.current_animation != "fall":
-			$Sprite3D/AnimationPlayer.play("fall")
+		if $AnimationPlayer.current_animation != "fall":
+			$AnimationPlayer.play("fall")
 	elif velocity.x != 0:
-		if $Sprite3D/AnimationPlayer.current_animation != "run_side":
-			$Sprite3D/AnimationPlayer.play("run_side")
+		if $AnimationPlayer.current_animation != "run_side":
+			$AnimationPlayer.play("run_side")
 	elif velocity.z > 0:
-		if $Sprite3D/AnimationPlayer.current_animation != "run_front":
-			$Sprite3D/AnimationPlayer.play("run_front")
+		if $AnimationPlayer.current_animation != "run_front":
+			$AnimationPlayer.play("run_front")
 	elif velocity.z < 0:
-		if $Sprite3D/AnimationPlayer.current_animation != "run_back":
-			$Sprite3D/AnimationPlayer.play("run_back")
+		if $AnimationPlayer.current_animation != "run_back":
+			$AnimationPlayer.play("run_back")
 	else:
-		if $Sprite3D/AnimationPlayer.current_animation != "idle":
-			$Sprite3D/AnimationPlayer.play("idle")
+		if $AnimationPlayer.current_animation != "idle":
+			$AnimationPlayer.play("idle")

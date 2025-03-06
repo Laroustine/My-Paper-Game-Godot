@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cauwb6il81gey"]
+
+[ext_resource type="PackedScene" uid="uid://bef8wbjukd3oo" path="res://scenes/menu/Mobile_Controls.tscn" id="1_5b8bl"]
+[ext_resource type="PackedScene" uid="uid://5shcv6dtgopw" path="res://object/player/player.tscn" id="1_c5wia"]
+[ext_resource type="PackedScene" uid="uid://cdeyd3l84hqp4" path="res://object/npc/npc.tscn" id="2_vclcu"]
+[ext_resource type="Texture2D" uid="uid://dwola34ekqpe2" path="res://assets/image/sprite/character/base_x3.png" id="3_745tn"]
+[ext_resource type="Texture2D" uid="uid://bsayiy23g4iox" path="res://assets/image/sprite/character/base_carac.png" id="4_n0ah4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_db6o7"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ji0mp"]
+size = Vector3(20, 0.2, 20)
+
+[node name="lvl_test" type="Node3D"]
+
+[node name="Mobile_Controls" parent="." instance=ExtResource("1_5b8bl")]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_db6o7")
+
+[node name="Hitbox" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_ji0mp")
+
+[node name="Player" parent="." instance=ExtResource("1_c5wia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39919, 2.07682, 0.768776)
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Npc" parent="NPCs" instance=ExtResource("2_vclcu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.80698, 0.671, -6.07931)
+CharacterName = "DevMan"
+DialogText = "This is an updated Prototype of the paper Mario Movement.
+But it mainly tries to convert the GDScript present into C#.
+It is not trying to be an optimisation of the previously placed nodes."
+VoicePath = "res://assets/audio/voice/Justin"
+_sprite = ExtResource("4_n0ah4")
+
+[node name="Npc2" parent="NPCs" instance=ExtResource("2_vclcu")]
+transform = Transform3D(-3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -0.253935, 0.622267, 3.08927)
+CharacterName = "Tall Fellow"
+DialogText = "I am tall. Thus the name."
+VoicePath = "res://assets/audio/voice/Louie"
+VoiceSpeed = 0.2
+_sprite = ExtResource("3_745tn")
+
+[node name="Npc3" parent="NPCs" instance=ExtResource("2_vclcu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.05461, 0.62343, 2.75147)
+CharacterName = "Small Lad"
+DialogText = "I am of regular size.
+The name is just a joke... I hope."
+VoicePath = "res://assets/audio/voice/Paul"
+VoiceSpeed = 0.05
+
+[node name="Npc4" parent="NPCs" instance=ExtResource("2_vclcu")]
+transform = Transform3D(-3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, 6.70478, 0.622267, 5.06807)
+CharacterName = "Same Guy"
+DialogText = "I currently have no idea what is going on. But i'm new here !"
+VoicePath = "res://assets/audio/voice/Lauryne"
+_sprite = ExtResource("3_745tn")

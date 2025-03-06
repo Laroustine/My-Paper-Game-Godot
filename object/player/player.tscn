@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://5shcv6dtgopw"]
 
-[ext_resource type="Script" path="res://object/player/player.gd" id="1_1opgb"]
-[ext_resource type="Texture2D" uid="uid://dc7yowtm10kau" path="res://image/sprite/character/white.png" id="2_iq28w"]
-[ext_resource type="AudioStream" uid="uid://civdndbe48fqk" path="res://audio/sound/step_01.wav" id="3_orfvn"]
-[ext_resource type="AudioStream" uid="uid://b4pja5nis8q63" path="res://audio/sound/jump.wav" id="4_f857q"]
+[ext_resource type="Script" path="res://object/player/player.gd" id="1_cptyy"]
+[ext_resource type="Texture2D" uid="uid://dc7yowtm10kau" path="res://assets/image/sprite/character/white.png" id="2_iq28w"]
+[ext_resource type="AudioStream" uid="uid://civdndbe48fqk" path="res://assets/audio/sound/step_01.wav" id="3_orfvn"]
+[ext_resource type="AudioStream" uid="uid://b4pja5nis8q63" path="res://assets/audio/sound/jump.wav" id="4_f857q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7xwk"]
 size = Vector3(0.6, 1, 0.3)
@@ -75,7 +75,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sounds/Jump:playing")
+tracks/1/path = NodePath("../Sounds/Jump:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -105,7 +105,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sounds/Step:playing")
+tracks/1/path = NodePath("../Sounds/Step:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -135,7 +135,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sounds/Step:playing")
+tracks/1/path = NodePath("../Sounds/Step:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -165,7 +165,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sounds/Step:playing")
+tracks/1/path = NodePath("../Sounds/Step:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -188,7 +188,8 @@ _data = {
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.513245, 0)
-script = ExtResource("1_1opgb")
+collision_layer = 3
+script = ExtResource("1_cptyy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_a7xwk")
@@ -202,22 +203,23 @@ hframes = 10
 vframes = 3
 frame = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite3D"]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.2, 4)
+rotation_order = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite3D")
 libraries = {
 "": SubResource("AnimationLibrary_p1kvp")
 }
 
-[node name="Sounds" type="Node" parent="Sprite3D"]
+[node name="Sounds" type="Node" parent="."]
 
-[node name="Step" type="AudioStreamPlayer" parent="Sprite3D/Sounds"]
+[node name="Step" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("3_orfvn")
 volume_db = -25.0
 
-[node name="Jump" type="AudioStreamPlayer" parent="Sprite3D/Sounds"]
+[node name="Jump" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("4_f857q")
 volume_db = -20.0
 pitch_scale = 0.8
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1.2, 4)
-rotation_order = 0

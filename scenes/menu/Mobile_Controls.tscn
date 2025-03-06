@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bef8wbjukd3oo"]
 
-[ext_resource type="Texture2D" uid="uid://dtliy1gvhb4pm" path="res://image/sprite/keys/mobile/talk.png" id="1_4dcpc"]
-[ext_resource type="Script" path="res://object/menu/Mobile_Controls.gd" id="1_o6bv3"]
-[ext_resource type="Texture2D" uid="uid://d5euo2dl2oij" path="res://image/sprite/keys/mobile/jump.png" id="2_af8l6"]
-[ext_resource type="Texture2D" uid="uid://di2pci1x6avlo" path="res://image/sprite/keys/mobile/arrow_up.png" id="3_dtekq"]
+[ext_resource type="Texture2D" uid="uid://dtliy1gvhb4pm" path="res://assets/image/sprite/keys/mobile/talk.png" id="1_4dcpc"]
+[ext_resource type="Script" path="res://scenes/menu/Mobile_Controls.gd" id="1_o6bv3"]
+[ext_resource type="Texture2D" uid="uid://d5euo2dl2oij" path="res://assets/image/sprite/keys/mobile/jump.png" id="2_af8l6"]
+[ext_resource type="Texture2D" uid="uid://di2pci1x6avlo" path="res://assets/image/sprite/keys/mobile/arrow_up.png" id="3_dtekq"]
 
 [node name="Mobile_Controls" type="TextureRect"]
 modulate = Color(1, 1, 1, 0.470588)
